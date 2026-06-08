@@ -30,7 +30,7 @@ public class MarkdownDocumentationService {
      * Loads {@code documentation/<fileName>} from the classpath and renders GitHub-flavoured Markdown to HTML.
      */
     public String renderDocumentationFile(String fileName) throws IOException {
-        ClassPathResource resource = new ClassPathResource("tv/videoready/docs/service/generated-resources/documentation/" + fileName);
+        ClassPathResource resource = new ClassPathResource("documentation/" + fileName);
         if (!resource.exists()) {
             throw new IOException("Missing classpath resource: documentation/" + fileName
                     + " (run Gradle processResources so ../docs is copied).");
