@@ -2,9 +2,11 @@ buildscript {
     ext {
         springBootVersion = '1.5.22.RELEASE'
     }
+
     repositories {
         mavenCentral()
     }
+
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
     }
@@ -16,7 +18,7 @@ apply plugin: 'spring-boot'
 
 group = 'tv.videoready'
 version = '0.0.1-SNAPSHOT'
-description = 'Internal engineering documentation hub (partner onboarding / deboarding flows)'
+
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
@@ -27,6 +29,7 @@ repositories {
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-web:${springBootVersion}")
     compile("org.springframework.boot:spring-boot-starter-thymeleaf:${springBootVersion}")
+
     compile 'org.commonmark:commonmark:0.17.2'
     compile 'org.commonmark:commonmark-ext-gfm-tables:0.17.2'
 }
@@ -40,13 +43,12 @@ sourceSets {
 }
 
 task copyRootDocs(type: Copy) {
-    description = 'Copies ../docs/*.md into the classpath as documentation/'
     from "$projectDir/../docs"
     include '*.md'
     into "$buildDir/generated-resources/documentation"
 }
 
-processResources.dependsOn copyRootDocs
+processResources.dependsOn(copyRootDocs)
 
 clean {
     delete "$buildDir/generated-resources"
