@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: commonHead">
+    <title>Doc</title>
+</head>
+<body>
+<div th:replace="fragments :: siteHeader"></div>
+<main>
+    <article class="markdown-body" th:utext="${htmlContent}"></article>
+</main>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: commonHead">
+    <title>Error</title>
+</head>
+<body>
+<div th:replace="fragments :: siteHeader"></div>
+<main>
+    <h1>Could not load document</h1>
+    <p class="muted" th:text="${errorMessage}">Error</p>
+    <p class="muted">If you run from the IDE without Gradle resource processing, run
+        <code>./gradlew processResources</code> or <code>./gradlew bootRun</code> from <code>engineering-docs-hub/</code>.</p>
+    <p><a href="/">Return home</a></p>
+</main>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: commonHead">
+    <title>Hub</title>
+</head>
+<body>
+<div th:replace="fragments :: siteHeader"></div>
+<main>
+    <p class="callout">
+        Internal reference: Markdown from the repo <code>docs/</code> folder is copied into this app at Gradle
+        <code>processResources</code> time. <strong>Flows</strong> (runbooks) and <strong>APIs</strong> (REST reference) are opened from separate index pages so they are not mixed on the home screen.
+    </p>
+    <h1>Engineering documentation</h1>
+    <p class="muted">Pick an area. Each card opens one index page that links to every topic in that area.</p>
+
+    <h2>Flow guides</h2>
+    <p class="muted">Partner lifecycle, billing, ingestion, CDMS, search ops — cross-service runbooks.</p>
+    <div class="flow-grid" th:if="${flowsLanding != null}">
+        <article class="flow-card">
+            <h2><a th:href="@{/flows/{s}(s=${flowsLanding.slug})}" th:text="${flowsLanding.title}">All flow documentation</a></h2>
+            <p th:text="${flowsLanding.summary}">Summary</p>
+        </article>
+    </div>
+
+    <h2>API reference</h2>
+    <p class="muted">REST endpoints by service (currently binge-mobile-services).</p>
+    <div class="flow-grid" th:if="${apisLanding != null}">
+        <article class="flow-card">
+            <h2><a th:href="@{/flows/{s}(s=${apisLanding.slug})}" th:text="${apisLanding.title}">All API documentation</a></h2>
+            <p th:text="${apisLanding.summary}">Summary</p>
+        </article>
+    </div>
+</main>
+</body>
+</html>

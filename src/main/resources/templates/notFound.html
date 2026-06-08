@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: commonHead">
+    <title>Not found</title>
+</head>
+<body>
+<div th:replace="fragments :: siteHeader"></div>
+<main>
+    <h1>Page not found</h1>
+    <p class="muted">No documentation flow is registered for slug <code th:text="${unknownSlug}">x</code>.</p>
+    <p><a href="/">Return home</a></p>
+</main>
+</body>
+</html>
